@@ -56,8 +56,8 @@ const selectConfigs = {
     id: 'captions-background-opacity-%s',
     label: 'Transparency',
     options: [
-      OPACITY_OPAQUE,
       OPACITY_SEMI,
+      OPACITY_OPAQUE,
       OPACITY_TRANS
     ]
   },
@@ -121,7 +121,7 @@ const selectConfigs = {
       ['3.00', '300%'],
       ['4.00', '400%']
     ],
-    default: 2,
+    default: 1,
     parser: (v) => v === '1.00' ? null : Number(v)
   },
 
