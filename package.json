@@ -20,6 +20,7 @@
   "scripts": {
     "sandbox": "node build/sandbox.js",
     "prestart": "npm-run-all sandbox",
+    "prepare": "npm install && npm run build"
     "start": "npm-run-all -p watch karma-server",
     "clean": "shx rm -rf ./dist ./test/dist ./docs/api ./lang/zh-Han*.json",
     "postclean": "shx mkdir -p ./dist/lang ./test/dist",
