@@ -276,7 +276,7 @@ class TextTrackSettings extends ModalDialog {
       this.saveSettings();
       this.close();
     });
-    
+
     this.on(this.$('.vjs-close-button'), 'click', () => {
       this.saveSettings();
       this.close();
