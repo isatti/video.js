@@ -122,7 +122,7 @@ const selectConfigs = {
       ['4.00', '400%']
     ],
     default: 1,
-    parser: (v) => v === '1.00' ? null : Number(v)
+    parser: (v) => v === '0.75' ? null : Number(v)
   },
 
   textOpacity: {
