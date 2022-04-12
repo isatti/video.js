@@ -24,7 +24,6 @@
     "clean": "shx rm -rf ./dist ./test/dist ./docs/api ./lang/zh-Han*.json",
     "postclean": "shx mkdir -p ./dist/lang ./test/dist",
     "changelog": "conventional-changelog -p videojs -i CHANGELOG.md -s",
-    "prepare": "npm run build",
     "build": "npm-run-all build-dev minify copy zip",
     "build-dev": "npm-run-all clean lint-errors build:js build:css build:lang build:test",
     "build:test": "npm-run-all build:test:*",
