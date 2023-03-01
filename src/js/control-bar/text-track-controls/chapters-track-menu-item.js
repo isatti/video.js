@@ -29,7 +29,15 @@ class ChaptersTrackMenuItem extends MenuItem {
     // Modify options for parent MenuItem class's init.
     options.selectable = true;
     options.multiSelectable = false;
-    options.label = cue.text;
+    const date = new Date(null);
+
+    date.setSeconds(cue.startTime);
+    let timeString = date.toISOString().substr(11, 8);
+
+    if (timeString.startsWith('00:')) {
+      timeString = timeString.substr(3);
+    }
+    options.label = cue.text + '||' + timeString;
     options.selected = (cue.startTime <= currentTime && currentTime < cue.endTime);
     super(player, options);
 
@@ -49,6 +57,7 @@ class ChaptersTrackMenuItem extends MenuItem {
    * @listens tap
    * @listens click
    */
+
   handleClick(event) {
     super.handleClick();
     this.player_.currentTime(this.cue.startTime);

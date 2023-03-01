@@ -69,12 +69,20 @@ class MenuItem extends ClickableComponent {
       tabIndex: -1
     }, props), attrs);
 
+    const chapterText = this.options_.label.split('||')[0];
+    const chapterStartTime = this.options_.label.split('||')[1];
+
     // swap icon with menu item text.
     el.replaceChild(createEl('span', {
       className: 'vjs-menu-item-text',
-      textContent: this.localize(this.options_.label)
+      textContent: this.localize(chapterText)
     }), el.querySelector('.vjs-icon-placeholder'));
-
+    if (chapterStartTime) {
+      el.appendChild(createEl('span', {
+        className: 'vjs-menu-item-chapter-starttime',
+        textContent: this.localize(chapterStartTime)
+      }));
+    }
     return el;
   }
 
