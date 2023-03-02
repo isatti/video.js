@@ -125,7 +125,7 @@ class MenuItem extends ClickableComponent {
    */
   selected(selected) {
     if (this.selectable) {
-      if (selected) {
+      if (selected && !this.el_.outerHTML.includes('-chapter-')) {
         this.addClass('vjs-selected');
         this.el_.setAttribute('aria-checked', 'true');
         // aria-checked isn't fully supported by browsers/screen readers,

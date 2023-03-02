@@ -24,7 +24,7 @@ class ChaptersTrackMenuItem extends MenuItem {
   constructor(player, options) {
     const track = options.track;
     const cue = options.cue;
-    const currentTime = player.currentTime();
+    // const currentTime = player.currentTime();
 
     // Modify options for parent MenuItem class's init.
     options.selectable = true;
@@ -38,7 +38,7 @@ class ChaptersTrackMenuItem extends MenuItem {
       timeString = timeString.substr(3);
     }
     options.label = cue.text + '||' + timeString;
-    options.selected = (cue.startTime <= currentTime && currentTime < cue.endTime);
+    // options.selected = (cue.startTime <= currentTime && currentTime < cue.endTime);
     super(player, options);
 
     this.track = track;
@@ -73,11 +73,11 @@ class ChaptersTrackMenuItem extends MenuItem {
    * @listens TextTrack#cuechange
    */
   update(event) {
-    const cue = this.cue;
-    const currentTime = this.player_.currentTime();
+    // const cue = this.cue;
+    // const currentTime = this.player_.currentTime();
 
     // vjs.log(currentTime, cue.startTime);
-    this.selected(cue.startTime <= currentTime && currentTime < cue.endTime);
+    // this.selected(cue.startTime <= currentTime && currentTime < cue.endTime);
   }
 
 }
