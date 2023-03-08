@@ -7,6 +7,7 @@ import {assign} from '../utils/obj';
 import {MenuKeys} from './menu-keys.js';
 import keycode from 'keycode';
 import {createEl} from '../utils/dom.js';
+import window from 'global/window';
 
 /**
  * The component for a menu item. `<li>`
@@ -69,9 +70,20 @@ class MenuItem extends ClickableComponent {
       tabIndex: -1
     }, props), attrs);
 
+    const chapterEditButtonEl = createEl('span', {
+      className: 'vjs-menu-item-chapter-edit-button'
+    });
+
     const chapterText = this.options_.label.split('||')[0];
     const chapterStartTime = this.options_.label.split('||')[1];
+    const chapterEvent = new window.Event('chapterEditEvent');
 
+    chapterEvent.data = {chapter: chapterText};
+
+    chapterEditButtonEl.addEventListener('click', ()=> {
+      window.dispatchEvent(chapterEvent);
+    });
+    el.prepend(chapterEditButtonEl);
     // swap icon with menu item text.
     el.replaceChild(createEl('span', {
       className: 'vjs-menu-item-text',
