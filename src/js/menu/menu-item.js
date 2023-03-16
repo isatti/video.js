@@ -80,9 +80,14 @@ class MenuItem extends ClickableComponent {
 
     chapterEvent.data = {chapter: chapterText};
 
-    chapterEditButtonEl.addEventListener('click', ()=> {
+    chapterEditButtonEl.addEventListener('click', () => {
       window.dispatchEvent(chapterEvent);
     });
+
+    chapterEditButtonEl.addEventListener('touchstart', function() {
+      window.dispatchEvent(chapterEvent);
+    });
+
     el.prepend(chapterEditButtonEl);
     // swap icon with menu item text.
     el.replaceChild(createEl('span', {
