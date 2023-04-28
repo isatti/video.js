@@ -77,7 +77,15 @@ class MenuItem extends ClickableComponent {
     const chapterText = this.options_.label.split('||')[0];
     const chapterStartTime = this.options_.label.split('||')[1];
     const chapterEvent = new window.Event('chapterEditEvent');
+    const isChapterNameEmpty = (chapterText === null || chapterText.trim() === '');
 
+    if (isChapterNameEmpty) {
+      const emptyEl = super.createEl('li', {
+        style: 'display: none;'
+      });
+
+      return emptyEl;
+    }
     chapterEvent.data = {chapter: chapterText};
 
     chapterEditButtonEl.addEventListener('click', () => {
